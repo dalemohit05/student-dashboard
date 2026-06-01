@@ -9,8 +9,9 @@ import ActivityTile from './ActivityTile'
 interface BentoGridProps {
   courses: Course[]
 }
+import { Variants } from 'framer-motion'
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -19,7 +20,7 @@ const containerVariants = {
   },
 }
 
-const tileVariants = {
+const tileVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
@@ -31,7 +32,6 @@ const tileVariants = {
     },
   },
 }
-
 export default function BentoGrid({ courses }: BentoGridProps) {
   return (
     <motion.section
