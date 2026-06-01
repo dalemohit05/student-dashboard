@@ -99,4 +99,20 @@ CREATE TABLE courses (
   icon_name TEXT NOT NULL,
   created_at TIMESTAMPTZ DEFAULT now()
 );
-```
+
+## 🧗 Challenges Faced
+
+### 1. Hydration Mismatch in ActivityTile
+The activity graph used `Math.random()` to generate data at the module level. This caused a hydration mismatch because the server and client generated different random values. 
+**Fix:** Moved the data generation inside `useEffect` so it only runs on the client after hydration.
+
+### 2. Dynamic Lucide Icon Rendering
+Initially used `import * as LucideIcons` to dynamically pick icons by `icon_name` from the database. This returned the module namespace object instead of a component, causing a "got: object" runtime error.
+**Fix:** Created an explicit `iconMap` dictionary mapping string names to icon components.
+
+### 3. TypeScript Strict Mode on Vercel
+Local development was lenient with Framer Motion's `type: 'spring'` string. Vercel's production build runs strict TypeScript checks and rejected it as `string` instead of a literal type.
+**Fix:** Added `as const` to the transition type value to satisfy the type checker.
+
+### 4. Server vs Client Component Split
+Balancing data fetching in Server Components while keeping animations in Client Components required careful prop drilling. The solution was to keep `page.tsx` as the only async Server Component and pass all fetched data down as props to Client Components.
