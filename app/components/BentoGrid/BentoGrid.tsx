@@ -19,7 +19,7 @@ export default function BentoGrid({ courses }: BentoGridProps) {
         hidden: {},
         visible: { transition: { staggerChildren: 0.1 } },
       }}
-      className="grid gap-4 grid-cols-1 md:grid-cols-2"
+      className="grid gap-4 grid-cols-1 md:grid-cols-2 w-full"
     >
       <motion.div
         variants={{
@@ -30,7 +30,7 @@ export default function BentoGrid({ courses }: BentoGridProps) {
             transition: { type: 'spring' as const, stiffness: 260, damping: 22 },
           },
         }}
-        className="col-span-1 md:col-span-2"
+        className="grid gap-4 grid-cols-1 md:grid-cols-2 w-full"
       >
         <HeroTile />
       </motion.div>
@@ -60,7 +60,7 @@ export default function BentoGrid({ courses }: BentoGridProps) {
             transition: { type: 'spring' as const, stiffness: 260, damping: 22 },
           },
         }}
-        className="col-span-1 md:col-span-2"
+       className="grid gap-4 grid-cols-1 md:grid-cols-2 w-full"
       >
         <ActivityTile />
       </motion.div>

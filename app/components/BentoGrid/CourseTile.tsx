@@ -36,7 +36,7 @@ export default function CourseTile({ course }: CourseTileProps) {
       style={{
         background: 'linear-gradient(145deg, #1a1a2e 0%, #16161f 100%)',
         border: '1px solid #ffffff0f',
-        minHeight: '180px',
+        minHeight: '150px',
       }}
     >
       {/* Gradient mesh */}

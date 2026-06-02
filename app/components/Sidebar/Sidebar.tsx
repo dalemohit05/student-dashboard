@@ -37,27 +37,24 @@ export default function Sidebar() {
 
   return (
     <motion.nav
-      animate={{ width: isCollapsed ? 72 : 220 }}
+      animate={{ width: isCollapsed ? 68 : 210 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      className="relative hidden md:flex flex-col h-screen sticky top-0 shrink-0 overflow-hidden"
+      className="relative hidden md:flex flex-col h-screen sticky top-0 shrink-0"
       style={{
-        background: '#111118',
-        borderRight: '1px solid #ffffff0f',
+        background: '#0d0d14',
+        borderRight: '1px solid #ffffff0a',
+        zIndex: 10,
       }}
     >
       {/* Logo */}
-      <div className="flex items-center gap-3 px-4 py-6">
-        <GraduationCap
-          size={24}
-          style={{ color: '#6c63ff' }}
-          className="shrink-0"
-        />
+      <div className="flex items-center gap-3 px-4 py-5 overflow-hidden">
+        <GraduationCap size={22} style={{ color: '#6c63ff' }} className="shrink-0" />
         {!isCollapsed && (
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="font-bold text-base tracking-tight whitespace-nowrap"
+            className="font-bold text-sm tracking-tight whitespace-nowrap"
+            style={{ color: '#f0f0ff' }}
           >
             LearnOS
           </motion.span>
@@ -78,9 +75,9 @@ export default function Sidebar() {
         ))}
       </div>
 
-      {/* Collapse Button — hidden on tablet (auto-collapsed) */}
+      {/* Collapse Button */}
       {!isTablet && (
-        <div className="px-2 pb-6">
+        <div className="px-2 pb-5">
           <motion.button
             onClick={() => setIsCollapsed(!isCollapsed)}
             whileHover={{ scale: 1.05 }}
@@ -92,7 +89,7 @@ export default function Sidebar() {
               animate={{ rotate: isCollapsed ? 180 : 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
-              <ChevronLeft size={16} />
+              <ChevronLeft size={14} />
             </motion.div>
           </motion.button>
         </div>

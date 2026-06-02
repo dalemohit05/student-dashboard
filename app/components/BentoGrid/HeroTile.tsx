@@ -23,10 +23,9 @@ export default function HeroTile() {
 
   return (
     <motion.article
-      whileHover={{
-        scale: 1.01,
-        boxShadow: '0 0 24px #6c63ff22, 0 0 0 1px #6c63ff33',
-      }}
+    whileHover={{
+  scale: 1.005,
+}}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       className="relative rounded-2xl p-8 overflow-hidden col-span-2"
       style={{
