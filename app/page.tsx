@@ -23,9 +23,9 @@ export default async function Page() {
   const { data: courses, error } = await getCourses()
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen w-full">
       <Sidebar />
-      <main className="flex-1 p-4 md:p-6 overflow-y-auto pb-24 md:pb-6">
+      <main className="flex-1 min-w-0 p-6 overflow-y-auto pb-24 md:pb-6">
         {error ? (
           <div
             className="flex items-center gap-3 p-4 rounded-2xl"
@@ -45,8 +45,6 @@ export default async function Page() {
           <BentoGrid courses={courses} />
         )}
       </main>
-
-      {/* Mobile bottom nav */}
       <MobileNav />
     </div>
   )

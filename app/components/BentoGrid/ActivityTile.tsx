@@ -58,8 +58,8 @@ export default function ActivityTile() {
                   transition={{ delay: wi * 0.01, duration: 0.2 }}
                   className="rounded-sm"
                   style={{
-                    width: '10px',
-                    height: '10px',
+                    width: '8px',
+                    height: '8px',
                     background: levelColors[day.level],
                   }}
                 />
